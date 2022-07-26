@@ -1,0 +1,13 @@
+name: Perform Deployment
+
+on:
+  push:
+    branches:
+      - master
+      - prod
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/deploy.yml
+    with: 
+      environment: ${{ github.ref }}
